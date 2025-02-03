@@ -12,7 +12,7 @@ function App() {
     if (currentQuestionId < questions.length) {
       setCurrentQuestion((currentQuestionId) => currentQuestionId + 1);
     } else {
-      setCurrentQuestion(null);
+      setCurrentQuestion(null); // No more questions
     }
     if (correct) {
       setScore((score) => score + 1);
@@ -22,7 +22,7 @@ function App() {
   return (
     <main>
       <section>
-        {currentQuestion ? (
+        {currentQuestion ? ( // Only render Question if currentQuestion is defined
           <Question
             question={currentQuestion}
             onAnswered={handleQuestionAnswered}
@@ -30,7 +30,9 @@ function App() {
         ) : (
           <>
             <h1>Game Over</h1>
+
             <h2>Total Correct: {score}</h2>
+            <p>Try again.lol</p>
           </>
         )}
       </section>
